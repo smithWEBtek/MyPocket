@@ -1,5 +1,5 @@
 <div class="container">
-  <h2><%= link_to "Expenses: ", user_transactions_path(current_user)%></h2>
+  <h2><%= link_to "Expenses: ", user_transactions_path(current_user), id: 'myexpenses' %></h2>
   <div>
     <%= form_tag(user_path(@user), method: "get") do %>
       View Activity by Category

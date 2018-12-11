@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit]
 
-  def index
+	def index
+		@users = User.all
+		respond_to do |f|
+			f.html {render :index}
+			f.json {render json: @users}
+		end
   end
 
   def new
@@ -16,9 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # raise params.inspect
     @categories = Category.all
-
     if params[:category].present?
       @transactions = current_user.transactions.where(category: params[:category])
     elsif params[:price].present?
@@ -28,7 +31,13 @@ class UsersController < ApplicationController
         @transactions = current_user.transactions.by_high_price
       end
     else
-      @transactions = current_user.transactions
+			@transactions = current_user.transactions
+			
+			respond_to do |f|
+				f.html {render :show}
+				# f.json {render json: @transactions}
+				f.json {render json: current_user}
+			end
     end
   end
 
