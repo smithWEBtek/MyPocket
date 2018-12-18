@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name,	:password, :password_confirmation
+  attributes :id, :name, :password, :password_confirmation
 
   has_many :transactions, :dependent => :destroy
   has_many :saving_goals, :dependent => :destroy

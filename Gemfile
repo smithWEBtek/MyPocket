@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'jquery-rails'
 
+gem 'jquery-rails'
+
 ruby '2.3.3'
-gem 'active_model_serializers', '~> 0.10.0'
+gem 'active_model_serializers'
 gem 'rails', '~> 5.2.1'
 gem 'sqlite3'
 gem 'puma', '~> 3.11'
@@ -28,7 +30,7 @@ end
 
 
 group :development do
-	gem 'pry'
+  gem 'pry'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

@@ -53,8 +53,17 @@ User.prototype.financeReport = function () {
 }
 
 
+function updateExpense(response) {
 
+	let htmlArray = response.map((exp, index) => {
+		return (`
+		<li id=${index}>${exp.description} - ${exp.category} - ${exp.amount}</li>
+		`)
+	})
 
+	let fullHTML = `<ul>${htmlArray.join('')}</ul>`
+	$("#expense_list").append(fullHTML)
+}
 
 // listeners
 

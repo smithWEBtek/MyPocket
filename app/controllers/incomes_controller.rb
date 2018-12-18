@@ -1,5 +1,12 @@
 class IncomesController < ApplicationController
-  before_action :set_income, except: [:create]
+  before_action :set_income, except: [:create, :index]
+
+  def index
+    @user = current_user
+    @incomes = @user.incomes
+
+    render json: @incomes
+  end
 
   def new
     @user = current_user
@@ -10,10 +17,11 @@ class IncomesController < ApplicationController
     @income = current_user.incomes.create(income_params)
     if @income.save
       flash[:success] = "Income was created"
+      render json: @income
     else
       flash[:error] = "Income could not be created"
+      redirect_to current_user
     end
-    redirect_to current_user
   end
 
   def edit

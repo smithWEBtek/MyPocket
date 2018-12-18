@@ -267,7 +267,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   active_model_serializers (~> 0.10.0)
+=======
+  active_model_serializers
+>>>>>>> bcf42f5a2fa1fb99a685c6658c0823bc9252575e
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   bootstrap-sass (= 3.3.7)
